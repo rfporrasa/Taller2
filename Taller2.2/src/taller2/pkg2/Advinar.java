@@ -77,25 +77,26 @@ public class Advinar extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(269, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
                 .addComponent(jButton1)
                 .addGap(35, 35, 35))
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(empezar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(qq))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(randum, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                    .addComponent(intentos))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(empezar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(qq))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(randum, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(intentos, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,8 +123,7 @@ public class Advinar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int yyy = inten();
-        if (yyy >0)
+        if (kk >0)
         {
         String ll= randum.getText();
         int lll= Integer.parseInt(ll);
@@ -134,7 +134,11 @@ public class Advinar extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(rootPane, "ese número no es");
         }
-       intentos.setText("Los intentos que tiene son");
+       intentos.setText("Los intentos que tiene son"+k);
+       kk=kk-1;
+       k=k-1;
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "se te acabaron los intentos, empieza de nuevo");
         }
        
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -150,17 +154,12 @@ public class Advinar extends javax.swing.JFrame {
     private void intentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_intentosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_intentosActionPerformed
-public static int inten(){
-    int hhh = 4;
-    
-        hhh = hhh -1;
-    
-    return hhh;
-}
+
     private void randumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randumActionPerformed
         // TODO add your handling code here:  
     }//GEN-LAST:event_randumActionPerformed
-
+int kk=3;
+int k=2;
     /**
      * @param args the command line arguments
      */
