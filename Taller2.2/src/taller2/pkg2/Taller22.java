@@ -16,6 +16,9 @@ public class Taller22 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Menu ven = new Menu();
+        ven.setVisible(true);
+        ven.setLocationRelativeTo(null);
     }
     
 }
