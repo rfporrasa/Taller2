@@ -5,6 +5,8 @@
  */
 package taller2.pkg2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Fabian Porras A
@@ -27,22 +29,130 @@ public class Matriz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        x = new javax.swing.JTextField();
+        y = new javax.swing.JTextField();
+        empezar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        mostra = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Ingrese los Números deseados");
+
+        jLabel2.setText("X");
+
+        jLabel3.setText("y");
+
+        empezar.setText("Empezar");
+        empezar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                empezarActionPerformed(evt);
+            }
+        });
+
+        mostra.setColumns(20);
+        mostra.setRows(5);
+        jScrollPane2.setViewportView(mostra);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(x, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(y, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(191, 191, 191))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jLabel2)
+                        .addGap(331, 331, 331)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(239, 239, 239)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(empezar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(x, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(y, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(empezar)
+                .addGap(48, 48, 48)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void empezarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezarActionPerformed
+        // TODO add your handling code here:
+        Integer a= Integer.parseInt(x.getText());
+        Integer s= Integer.parseInt(y.getText());
+        Integer [][]numeros= new Integer[a][s];
+        for (int i = 0; i < a; i++) {
+            for (int j = 0; j < s; j++) {
+                int rondum=(int)(Math.random()*20)+1;
+                numeros [i][j]=rondum;
+            }
+        }
+        mostrar(numeros);
+        int m= contar(numeros);
+        if(m>0){
+        JOptionPane.showMessageDialog(rootPane, m);
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "No hay");
+        }
+    }//GEN-LAST:event_empezarActionPerformed
+public void mostrar(Integer[][] numeros){
+        Integer a= Integer.parseInt(x.getText());
+        Integer s= Integer.parseInt(y.getText());
+        
+        for (int i = 0; i < a; i++) {
+            for (int j = 0; j < s; j++) {
+                mostra.setText(mostra.getText()+numeros[i][j]+" ");
+            }
+            mostra.setText(mostra.getText()+System.lineSeparator());
+    }
+        
+        
+        
+        
+        
+}
+public int  contar(Integer[][] contar){
+      Integer a= Integer.parseInt(x.getText());
+      int op=0;
+      for (int i = 0; i < a; i++) {
+        if(contar[i][0]==5){
+            op=op+1;
+        }
+    }
+      return op;
+}
     /**
      * @param args the command line arguments
      */
@@ -79,5 +189,13 @@ public class Matriz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton empezar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea mostra;
+    private javax.swing.JTextField x;
+    private javax.swing.JTextField y;
     // End of variables declaration//GEN-END:variables
 }
